@@ -82,23 +82,23 @@ const TIMELINE = [
 const PLANS = [
   {
     name: 'Normal', tagline: 'Part-time drivers', slug: 'normal',
-    price: 80, maxPayout: '₹2,000', popular: false,
+    price: 40, maxPayout: '₹1,000', popular: false,
     features: ['All 5 disruption types', 'GigPoints rewards', 'Basic forecast alerts'],
   },
   {
     name: 'Medium', tagline: 'Regular drivers', slug: 'medium',
-    price: 120, maxPayout: '₹3,000', popular: true,
+    price: 60, maxPayout: '₹1500', popular: true,
     features: ['All 5 disruption types', 'GigPoints 1.5× rewards', 'Premium forecast alerts', 'Smart reminders'],
   },
   {
     name: 'High', tagline: 'Full-time drivers', slug: 'high',
-    price: 160, maxPayout: '₹4,000', popular: false,
+    price: 80, maxPayout: '₹2000', popular: false,
     features: ['All 5 disruption types', 'GigPoints 2× rewards', 'Premium forecast alerts', 'Smart reminders', 'Dedicated support'],
   },
 ];
 
 const FAQS = [
-  { q: 'How does SafeShift know when to pay me?', a: "SafeShift monitors weather, air quality, news, and the Porter app status for your city 24/7. When a disruption is detected and we confirm you were actively working, your payout fires automatically." },
+  { q: 'How does SafeShift know when to pay me?', a: "SafeShift monitors weather, air quality, news, and the Parter app status for your city 24/7. When a disruption is detected and we confirm you were actively working, your payout fires automatically." },
   { q: 'Do I need to file a claim?', a: 'No. Everything is automatic. When both our checks pass — disruption confirmed and your activity confirmed — the money goes directly to your linked UPI ID.' },
   { q: 'How fast is the payout?', a: 'Under 10 minutes from detection to your UPI. Most payouts complete in under 5 minutes.' },
   { q: 'Which cities are covered?', a: 'Delhi-NCR, Mumbai, Bangalore, Chennai, Pune, Hyderabad, Kolkata, Ahmedabad, Jaipur, and Lucknow.' },
@@ -1264,117 +1264,6 @@ export default function LandingPage() {
         </section>
 
         {/* ════════════════════════════════════════
-            TESTIMONIAL
-        ════════════════════════════════════════ */}
-        <section ref={testimonialRef} className="ss-testimonial" style={{ display:'flex', minHeight:440 }}>
-
-          {/* Left — image with text */}
-          <div className="ss-testimonial-img" style={{
-            flex:'0 0 65%',
-            backgroundImage:"url('/porter_ack.jpg')",
-            backgroundSize:'cover', backgroundPosition:'center',
-            position:'relative', display:'flex', alignItems:'flex-end',
-          }}>
-            <div style={{ padding:'28px 32px' }}>
-              <p style={{
-                margin:'0 0 6px 0',
-                fontSize:12, fontWeight:600, letterSpacing:'0.12em',
-                textTransform:'uppercase', color:C.orange,
-                fontFamily:"var(--font-inter),'Inter',sans-serif",
-              }}>Exclusive Interview</p>
-              <p style={{
-                margin:0,
-                fontSize:'clamp(1.1rem,1.6vw,1.4rem)', fontWeight:700,
-                color:'#1E3A5F', lineHeight:1.3,
-                fontFamily:"var(--font-inter),'Inter',sans-serif",
-              }}>
-                Hear directly from Porter LCV<br/>delivery partners who tried it first.
-              </p>
-            </div>
-          </div>
-
-          {/* Right — video */}
-          {/* To change the video start time: edit ?start=N (N = seconds into the video)        */}
-          {/* To change the thumbnail: take a screenshot of the desired frame, save it to        */}
-          {/*   /public/video-thumbnail.jpg, then update the backgroundImage src below.          */}
-          <div className="ss-testimonial-text" style={{
-            flex:1, background:'#b5c8fb',
-            display:'flex', flexDirection:'column', alignItems:'flex-start', justifyContent:'center',
-            padding:'32px 32px 32px 0px',
-            marginLeft:'-178px', position:'relative', zIndex:1,
-          }}>
-            <div style={{ width:'100%' }}>
-
-              {/* Mobile-only text (hidden on desktop, shown when left image is hidden) */}
-              <div className="ss-testimonial-mobile-text" style={{ display:'none', marginBottom:20 }}>
-                <p style={{
-                  margin:'0 0 6px 0',
-                  fontSize:12, fontWeight:600, letterSpacing:'0.12em',
-                  textTransform:'uppercase', color:C.orange,
-                  fontFamily:"var(--font-inter),'Inter',sans-serif",
-                }}>Exclusive Interview</p>
-                <p style={{
-                  margin:0,
-                  fontSize:'clamp(1.1rem,1.6vw,1.4rem)', fontWeight:700,
-                  color:'#1E3A5F', lineHeight:1.3,
-                  fontFamily:"var(--font-inter),'Inter',sans-serif",
-                }}>
-                  Hear directly from Porter LCV<br/>delivery partners who tried it first.
-                </p>
-              </div>
-
-              {/* 16:9 video wrapper — gradient border */}
-              <div style={{
-                padding:3, marginBottom:20,
-                borderRadius:11,
-                background:'linear-gradient(135deg, #F07820 0%, #1A40C0 100%)',
-                boxShadow:'0 8px 32px rgba(0,0,0,0.18)',
-              }}>
-              <div style={{ position:'relative', width:'100%', paddingBottom:'56.25%', borderRadius:8, overflow:'hidden', background:'#000' }}>
-                {videoPlaying ? (
-                  <iframe
-                    src="https://drive.google.com/file/d/1JUs3iJCZ427nV3vC9ayDoj2m398zKgAn/preview"
-                    style={{ position:'absolute', top:0, left:0, width:'100%', height:'100%', border:'none' }}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    title="Early reviewer interview"
-                  />
-                ) : (
-                  <div
-                    role="button"
-                    aria-label="Play early reviewer interview"
-                    tabIndex={0}
-                    onClick={() => setVideoPlaying(true)}
-                    onKeyDown={e => e.key === 'Enter' && setVideoPlaying(true)}
-                    style={{
-                      position:'absolute', top:0, left:0, width:'100%', height:'100%',
-                      backgroundImage:"url('/thumbnail.jpg')",
-                      backgroundSize:'cover', backgroundPosition:'center',
-                      cursor:'pointer',
-                      display:'flex', alignItems:'center', justifyContent:'center',
-                    }}
-                  >
-                    <div style={{
-                      width:60, height:60, borderRadius:'50%',
-                      background:'rgba(255,255,255,0.92)',
-                      display:'flex', alignItems:'center', justifyContent:'center',
-                      boxShadow:'0 4px 24px rgba(0,0,0,0.35)',
-                    }}>
-                      <svg viewBox="0 0 24 24" width={26} height={26} fill={C.orange}>
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
-
-                  </div>
-                )}
-              </div>{/* end 16:9 inner */}
-              </div>{/* end gradient border */}
-
-            </div>
-          </div>
-        </section>
-
-        {/* ════════════════════════════════════════
             LEARN
         ════════════════════════════════════════ */}
         <section id="learn" className="ss-learn-section" style={{ background:'#FFFFFF', padding:'80px 60px' }}>
@@ -1869,7 +1758,7 @@ function OpportunityBanner() {
             letterSpacing:'-0.04em', color:'#FFFFFF', lineHeight:1.05,
             fontFamily:"var(--font-inter),'Inter',sans-serif", marginBottom:20,
           }}>
-            500,000 Porter<br />LCV drivers.
+            30,000,000  <br />Bike Delivery Riders.
           </h2>
           <p style={{ fontSize:'clamp(1.1rem, 2vw, 1.35rem)', color:'rgba(255,255,255,0.58)', lineHeight:1.6, marginBottom:8 }}>
             Less than 5% have income protection.
@@ -1900,7 +1789,7 @@ function DarkFooter() {
   ];
 
   const SOCIALS = [
-    { label:'GitHub', href:'https://github.com/Manogna21-prog/Safe-Shift', path:'M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z' },
+    { label:'GitHub', href:'https://github.com/alphabot-x/safeshift', path:'M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z' },
     { label:'YouTube', href:'https://youtu.be/E31GBuIvsZE?si=SprofR8gVE5l-0Uu', path:'M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z' },
     { label:'Medium', href:'https://medium.com/@jv.yogashree/68409d934bfb', path:'M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z' },
   ];

@@ -16,7 +16,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             </h1>
           </div>
           <p style={{ fontSize: '0.85rem', color: '#666', marginTop: 6, fontFamily: "'Inter', sans-serif" }}>
-            AI-Powered Parametric Insurance for Porter LCV Partners
+            AI-Powered Parametric Insurance for Bike Delivery Partners
           </p>
         </div>
 

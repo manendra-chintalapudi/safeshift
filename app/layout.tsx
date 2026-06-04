@@ -18,8 +18,8 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SafeShift - Parametric Insurance for Porter Delivery Partners",
-  description: "Auto-pay when rain, AQI bans or cyclones stop your work. India's first parametric insurance for LCV delivery partners on Porter.",
+  title: "SafeShift - Parametric Insurance for Bike Delivery Partners",
+  description: "Auto-pay when rain, AQI bans or cyclones stop your work. India's first parametric insurance for Bike delivery partners.",
   manifest: "/manifest.webmanifest",
 };
 
