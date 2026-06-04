@@ -98,7 +98,7 @@ const PLANS = [
 ];
 
 const FAQS = [
-  { q: 'How does SafeShift know when to pay me?', a: "SafeShift monitors weather, air quality, news, and the Porter app status for your city 24/7. When a disruption is detected and we confirm you were actively working, your payout fires automatically." },
+  { q: 'How does SafeShift know when to pay me?', a: "SafeShift monitors weather, air quality, news, and the Parter app status for your city 24/7. When a disruption is detected and we confirm you were actively working, your payout fires automatically." },
   { q: 'Do I need to file a claim?', a: 'No. Everything is automatic. When both our checks pass — disruption confirmed and your activity confirmed — the money goes directly to your linked UPI ID.' },
   { q: 'How fast is the payout?', a: 'Under 10 minutes from detection to your UPI. Most payouts complete in under 5 minutes.' },
   { q: 'Which cities are covered?', a: 'Delhi-NCR, Mumbai, Bangalore, Chennai, Pune, Hyderabad, Kolkata, Ahmedabad, Jaipur, and Lucknow.' },
