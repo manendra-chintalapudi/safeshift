@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'SafeShift — Parametric Insurance',
     short_name: 'SafeShift',
-    description: 'Auto-pay when rain, AQI bans or cyclones stop your work. India\'s first parametric insurance for LCV delivery partners on Porter.',
+    description: 'Auto-pay when rain, AQI bans or cyclones stop your work. India\'s first parametric insurance for Bike delivery partners .',
     start_url: '/',
     scope: '/',
     display: 'standalone',
