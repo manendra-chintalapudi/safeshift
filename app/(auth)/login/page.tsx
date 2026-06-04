@@ -498,7 +498,7 @@ function LoginContent() {
                 I&apos;m a Driver
               </p>
               <p style={{ fontSize: 12, color: '#6B7280', margin: '2px 0 0', fontFamily: "'Inter', sans-serif" }}>
-                Porter LCV delivery partner
+                Bike delivery partner
               </p>
             </div>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginLeft: 'auto', flexShrink: 0 }}>
