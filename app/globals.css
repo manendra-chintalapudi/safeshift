@@ -1,0 +1,222 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-ibm-plex-sans);
+  --font-mono: var(--font-ibm-plex-mono);
+  --font-heading: var(--font-playfair);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  /* SafeShift custom colors */
+  --color-cream: var(--cream);
+  --color-cream-d: var(--cream-d);
+  --color-ink: var(--ink);
+  --color-ink-90: var(--ink-90);
+  --color-ink-60: var(--ink-60);
+  --color-ink-30: var(--ink-30);
+  --color-ink-10: var(--ink-10);
+  --color-teal: var(--teal);
+  --color-teal-d: var(--teal-d);
+  --color-teal-bg: var(--teal-bg);
+  --color-red-acc: var(--red-acc);
+  --color-rule: var(--rule);
+}
+
+:root {
+  /* SafeShift Design System — white-based */
+  --white:   #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100:#f3f4f6;
+  --gray-200:#e5e7eb;
+  --gray-300:#d1d5db;
+  --gray-400:#9ca3af;
+  --gray-500:#6b7280;
+  --gray-700:#374151;
+  --gray-900:#111827;
+  --dark:    #0f172a;
+  --teal:    #0d9488;
+  --teal-d:  #0f766e;
+  --teal-bg: rgba(13,148,136,0.08);
+  --teal-light: #f0fdfa;
+  --red-acc: #dc2626;
+  --rule:    #e5e7eb;
+
+  /* Legacy aliases (keep for non-landing pages) */
+  --cream:   #ffffff;
+  --cream-d: #f9fafb;
+  --ink:     #111827;
+  --ink-90:  #1f2937;
+  --ink-60:  #6b7280;
+  --ink-30:  #9ca3af;
+  --ink-10:  #f3f4f6;
+
+  /* Shadcn semantic overrides */
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --primary: #111827;
+  --primary-foreground: #ffffff;
+  --secondary: #f9fafb;
+  --secondary-foreground: #111827;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: rgba(13,148,136,0.08);
+  --accent-foreground: #111827;
+  --destructive: #dc2626;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #0d9488;
+  --chart-1: #0d9488;
+  --chart-2: #0f766e;
+  --chart-3: #111010;
+  --chart-4: rgba(17,16,16,0.55);
+  --chart-5: rgba(17,16,16,0.28);
+  --radius: 0.625rem;
+  --sidebar: #111010;
+  --sidebar-foreground: #f5f0e8;
+  --sidebar-primary: #0d9488;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(245,240,232,0.08);
+  --sidebar-accent-foreground: #f5f0e8;
+  --sidebar-border: rgba(245,240,232,0.14);
+  --sidebar-ring: #0d9488;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  /* Inter replaces Playfair for headings — same weight utility */
+  .serif { font-family: var(--font-inter), 'Inter', sans-serif; font-weight: 800; }
+  .mono  { font-family: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace; }
+  .sans  { font-family: var(--font-inter), 'Inter', sans-serif; }
+
+  /* Admin table row hover */
+  .admin-row:hover { background: rgba(240,120,32,0.06); }
+
+  /* Admin card — matches driver dashboard .dsh-card */
+  .adm-card {
+    background: #ffffff;
+    border: 1px solid #E8E8EA;
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  /* Admin staggered entry animation */
+  .adm-s {
+    animation: adm-up 0.4s ease both;
+  }
+  .adm-s:nth-child(1)  { animation-delay: 0s; }
+  .adm-s:nth-child(2)  { animation-delay: 0.05s; }
+  .adm-s:nth-child(3)  { animation-delay: 0.1s; }
+  .adm-s:nth-child(4)  { animation-delay: 0.15s; }
+  .adm-s:nth-child(5)  { animation-delay: 0.2s; }
+  .adm-s:nth-child(6)  { animation-delay: 0.25s; }
+  .adm-s:nth-child(7)  { animation-delay: 0.3s; }
+  .adm-s:nth-child(8)  { animation-delay: 0.35s; }
+  .adm-s:nth-child(9)  { animation-delay: 0.4s; }
+  .adm-s:nth-child(10) { animation-delay: 0.45s; }
+
+  /* Alert dot blink */
+  .blink {
+    animation: blink-pulse 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes blink-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes adm-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes adm-bar-grow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+@keyframes adm-bar-grow-x {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* AI Chat — highlight pulse on target cards */
+@keyframes ai-highlight-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(240,120,32,0.55); }
+  40%  { box-shadow: 0 0 0 10px rgba(240,120,32,0.2); }
+  100% { box-shadow: 0 0 0 14px rgba(240,120,32,0); }
+}
+.ai-highlight {
+  animation: ai-highlight-pulse 0.7s ease-out 3;
+  outline: 2.5px solid #F07820;
+  outline-offset: 3px;
+  border-radius: 16px;
+  position: relative;
+  z-index: 10;
+  transition: outline-color 0.3s;
+}
+
+/* Pricing plans row — responsive stacking */
+@media (max-width: 1024px) {
+  .ss-plans-row {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .ss-plan-card {
+    max-width: 400px !important;
+    width: 100% !important;
+  }
+}

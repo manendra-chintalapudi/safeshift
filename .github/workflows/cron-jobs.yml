@@ -1,0 +1,62 @@
+name: SafeShift Cron Jobs
+
+on:
+  schedule:
+    # Weekly premium calculation — Saturday 11:30 PM UTC (Sunday 5:00 AM IST)
+    - cron: '30 23 * * 6'
+    # Auto-renew policies — Sunday 9:30 AM UTC (Sunday 3:00 PM IST)
+    - cron: '30 9 * * 0'
+    # Activate policies — Sunday 11:30 PM UTC (Monday 5:00 AM IST)
+    - cron: '30 23 * * 0'
+    # Adjudicator — every 15 minutes
+    - cron: '*/15 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+env:
+  APP_URL: ${{ secrets.APP_URL }}
+  CRON_SECRET: ${{ secrets.CRON_SECRET }}
+
+jobs:
+  # Calculate dynamic premiums for all active drivers (runs Sunday morning IST)
+  weekly-premium:
+    if: github.event.schedule == '30 23 * * 6' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Calculate weekly premiums
+        run: |
+          curl -s -f "$APP_URL/api/cron/weekly-premium" \
+            -H "x-cron-secret: $CRON_SECRET" \
+            --max-time 120
+
+  # Auto-renew policies for drivers with auto_renew_enabled (runs Sunday 6:30 AM IST)
+  auto-renew:
+    if: github.event.schedule == '30 9 * * 0' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto-renew policies
+        run: |
+          curl -s -f "$APP_URL/api/cron/auto-renew" \
+            -H "x-cron-secret: $CRON_SECRET" \
+            --max-time 120
+
+  # Activate paid policies + expire old ones (runs Monday morning IST)
+  activate-policies:
+    if: github.event.schedule == '30 23 * * 0' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Activate policies
+        run: |
+          curl -s -f "$APP_URL/api/cron/activate-policies" \
+            -H "x-cron-secret: $CRON_SECRET" \
+            --max-time 60
+
+  # Adjudicator — check all 5 triggers for active cities (every 15 min)
+  adjudicator:
+    if: github.event.schedule == '*/15 * * * *'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run adjudicator
+        run: |
+          curl -s -f "$APP_URL/api/cron/adjudicator" \
+            -H "x-cron-secret: $CRON_SECRET" \
+            --max-time 300
