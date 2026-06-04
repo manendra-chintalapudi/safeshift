@@ -82,17 +82,17 @@ const TIMELINE = [
 const PLANS = [
   {
     name: 'Normal', tagline: 'Part-time drivers', slug: 'normal',
-    price: 80, maxPayout: '₹2,000', popular: false,
+    price: 40, maxPayout: '₹1,000', popular: false,
     features: ['All 5 disruption types', 'GigPoints rewards', 'Basic forecast alerts'],
   },
   {
     name: 'Medium', tagline: 'Regular drivers', slug: 'medium',
-    price: 120, maxPayout: '₹3,000', popular: true,
+    price: 60, maxPayout: '₹1500', popular: true,
     features: ['All 5 disruption types', 'GigPoints 1.5× rewards', 'Premium forecast alerts', 'Smart reminders'],
   },
   {
     name: 'High', tagline: 'Full-time drivers', slug: 'high',
-    price: 160, maxPayout: '₹4,000', popular: false,
+    price: 80, maxPayout: '₹2000', popular: false,
     features: ['All 5 disruption types', 'GigPoints 2× rewards', 'Premium forecast alerts', 'Smart reminders', 'Dedicated support'],
   },
 ];
