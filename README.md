@@ -326,5 +326,5 @@ FEEDBACK LOOP: Update claim history → Retrain pricing model
 
 <p align="center">
   <b>SafeShift</b> — Because no driver should lose their livelihood to the weather.<br/>
-  <i>Team Code Mavens | Guidewire DEVTrails 2026</i>
+  <i>Team Code Mavens</i>
 </p>
